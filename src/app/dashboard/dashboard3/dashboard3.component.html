@@ -1,0 +1,128 @@
+<section class="content">
+  <div class="container-fluid">
+    @for (breadscrum of breadscrums; track breadscrum) {
+    <div class="block-header">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+    }
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-3">
+        <app-income-info-box title="Today's Income" subtitle="Income For Today" value="$170" valueClass="text-info"
+          [progress]="75" progressClass="l-bg-purple" change="75%">
+        </app-income-info-box>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3">
+        <app-income-info-box title="Total Revenue" subtitle="Total Income" value="$120" valueClass="text-success"
+          [progress]="45" progressClass="l-bg-orange" change="25%">
+        </app-income-info-box>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3">
+        <app-income-info-box title="New Orders" subtitle="Fresh New Order" value="15" valueClass="text-danger"
+          [progress]="45" progressClass="l-bg-cyan" change="50%">
+        </app-income-info-box>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3">
+        <app-income-info-box title="New Users" subtitle="Joined New User" value="12" valueClass="text-secondary"
+          [progress]="45" progressClass="l-bg-red" change="25%">
+        </app-income-info-box>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Recent Report</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 400px" visibility="hover">
+              <apx-chart [series]="lineChartOptions.series!" [chart]="lineChartOptions.chart!"
+                [xaxis]="lineChartOptions.xaxis!" [stroke]="lineChartOptions.stroke!"
+                [colors]="lineChartOptions.colors!" [dataLabels]="lineChartOptions.dataLabels!"
+                [legend]="lineChartOptions.legend!" [tooltip]="lineChartOptions.tooltip!"
+                [markers]="lineChartOptions.markers!" [grid]="lineChartOptions.grid!" [yaxis]="lineChartOptions.yaxis!"
+                [title]="lineChartOptions.title!" [fill]="lineChartOptions.fill!">
+              </apx-chart>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-lg-6">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Recent Report</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 400px" visibility="hover">
+              <apx-chart [series]="barChartOptions.series!" [chart]="barChartOptions.chart!"
+                [dataLabels]="barChartOptions.dataLabels!" [plotOptions]="barChartOptions.plotOptions!"
+                [responsive]="barChartOptions.responsive!" [xaxis]="barChartOptions.xaxis!"
+                [grid]="barChartOptions.grid!" [tooltip]="barChartOptions.tooltip!" [legend]="barChartOptions.legend!"
+                [fill]="barChartOptions.fill!">
+              </apx-chart>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <!-- Task Info -->
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Employee Task List</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 400px" visibility="hover">
+              <app-emp-task-tab [employees]="employeeData"></app-emp-task-tab>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <!-- #END# Task Info -->
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Project Hours</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 400px" visibility="hover">
+              <app-project-hours></app-project-hours>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <!-- #END# Browser Usage -->
+    </div>
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Activity</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 400px" visibility="hover">
+              <app-activity-list [activities]="activities"></app-activity-list>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Assign Task</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 400px" visibility="hover">
+              <app-assign-task [tasks]="assignTasks"></app-assign-task>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,122 @@
+<section class="content">
+  <div class="container-fluid">
+    @for (breadscrum of breadscrums; track breadscrum) {
+    <div class="block-header">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+    }
+    <div class="row clearfix">
+      <!-- Bar chart with line -->
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title> Bar chart with line</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 300px" visibility="hover">
+              <div echarts [options]="lineBarChart" class="deshboard-echart-height"></div>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <!-- line chart -->
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-report-card-widget [heading]="'Sales Report Last Year'" [todayCount]="105" [weekCount]="825"
+          [monthCount]="22067" [progressPercentage]="74" progressColor="orange">
+        </app-report-card-widget>
+
+        <app-report-card-widget [heading]="'Sales Report Current Year'" [todayCount]="1247" [weekCount]="22568"
+          [monthCount]="65147" [progressPercentage]="70" progressColor="Olive">
+        </app-report-card-widget>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <!-- Task Info -->
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Recent Orders</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 355px" visibility="hover">
+              <app-table-card [dataSource]="orderData" [columnDefinitions]="orderColumnDefinitions"></app-table-card>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <!-- #END# Task Info -->
+      <!-- Browser Usage -->
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Total Revenue</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 355px" visibility="hover">
+              <div class="text-center">
+                <h5 class="m-b-20">Total Visitors</h5>
+                <h6>5,98,345</h6>
+                <div class="d-inline-block">
+                  <ngx-gauge [size]="150" type="arch" [thick]="10" [value]="68.2" cap="butt" label="Revenue" append="%"
+                    [animate]="true" foregroundColor="#28c76f " [margin]="20" [markers]="markerConfig">
+                  </ngx-gauge>
+                </div>
+                <h5>Satisfaction Rate</h5>
+                <h6 class="displayblock m-t-10">36% Average</h6>
+                <div class="icon m-t-15">
+                  <div echarts [options]="ebarChart" class="sparkline-echart"></div>
+                </div>
+              </div>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <!-- #END# Browser Usage -->
+    </div>
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Recent Comments</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 400px" visibility="hover">
+              <app-recent-comments [comments]="comments"></app-recent-comments>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Recent Activity</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 400px" visibility="hover">
+              <app-timeline-list [timelineItems]="timelineData"></app-timeline-list>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Documents</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 400px" visibility="hover">
+              <div class="doc-file-type">
+                <app-document-list [documents]="documentList"></app-document-list>
+              </div>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>
