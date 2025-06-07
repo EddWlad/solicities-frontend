@@ -1,11 +1,11 @@
 // services
-export { AuthService } from './service/auth.service';
-export { DirectionService } from './service/direction.service';
-export { LanguageService } from './service/language.service';
-export { RightSidebarService } from './service/rightsidebar.service';
-export { WINDOW } from './service/window.service';
+export { AuthService } from '../services/auth.service';
+export { DirectionService } from '../services/direction.service';
+export { LanguageService } from '../services/language.service';
+export { RightSidebarService } from '../services/rightsidebar.service';
+export { WINDOW } from '../services/window.service';
 
 // models
 
-export { User } from './models/user';
-export { InConfiguration } from './models/config.interface';
+export { User } from '../model/user';
+export { InConfiguration } from '../model/config.interface';

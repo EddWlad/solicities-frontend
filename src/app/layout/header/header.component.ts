@@ -10,12 +10,12 @@ import {
 import { Router, RouterLink } from '@angular/router';
 import { ConfigService } from '@config';
 import { UnsubscribeOnDestroyAdapter } from '@shared';
-import { InConfiguration, AuthService, WINDOW, LanguageService, RightSidebarService } from '@core';
+import { InConfiguration, WINDOW, LanguageService, RightSidebarService, AuthService } from '@core';
 import { NgScrollbar } from 'ngx-scrollbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { FeatherIconsComponent } from '../../shared/components/feather-icons/feather-icons.component';
 import { MatButtonModule } from '@angular/material/button';
-import { WINDOW_PROVIDERS } from '@core/service/window.service';
+import { WINDOW_PROVIDERS } from 'app/services/window.service';
 
 interface Notifications {
   message: string;

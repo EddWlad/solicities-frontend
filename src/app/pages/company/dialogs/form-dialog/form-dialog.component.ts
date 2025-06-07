@@ -23,7 +23,6 @@ import {
   MatNativeDateModule,
   MatOptionModule,
 } from '@angular/material/core';
-import { formatDate } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatRadioModule } from '@angular/material/radio';

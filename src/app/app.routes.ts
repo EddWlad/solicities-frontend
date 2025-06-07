@@ -3,7 +3,9 @@ import { MainLayoutComponent } from './layout/app-layout/main-layout/main-layout
 import { AuthGuard } from '@core/guard/auth.guard';
 import { AuthLayoutComponent } from './layout/app-layout/auth-layout/auth-layout.component';
 import { Page404Component } from './authentication/page404/page404.component';
+import { CompanyComponent } from './pages/company/company.component';
 import { MaterialComponent } from './pages/material/material.component';
+import { MeasurementComponent } from './pages/measurement/measurement.component';
 
 export const APP_ROUTE: Route[] = [
   {
@@ -13,34 +15,12 @@ export const APP_ROUTE: Route[] = [
     children: [
       { path: '', redirectTo: '/authentication/signin', pathMatch: 'full' },
 
-      { path: 'pages/material', component: MaterialComponent },
+      { path: 'companies', component: CompanyComponent },
 
-      {
-        path: 'dashboard',
-        loadChildren: () =>
-          import('./dashboard/dashboard.routes').then((m) => m.DASHBOARD_ROUTE),
-      },
-      {
-        path: 'advance-table',
-        loadChildren: () =>
-          import('./advance-table/advance-table.routes').then(
-            (m) => m.ADVANCE_TABLE_ROUTE
-          ),
-      },
-      {
-        path: 'extra-pages',
-        loadChildren: () =>
-          import('./extra-pages/extra-pages.routes').then(
-            (m) => m.EXTRA_PAGES_ROUTE
-          ),
-      },
-      {
-        path: 'multilevel',
-        loadChildren: () =>
-          import('./multilevel/multilevel.routes').then(
-            (m) => m.MULTILEVEL_ROUTE
-          ),
-      },
+      { path: 'material', component: MaterialComponent },
+
+      { path: 'measurement', component: MeasurementComponent },
+
     ],
   },
   {

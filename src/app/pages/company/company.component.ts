@@ -18,12 +18,11 @@ import { Component,  ElementRef,
   import { FormDialogComponent } from './dialogs/form-dialog/form-dialog.component';
   import { DeleteDialogComponent } from './dialogs/delete/delete.component';
   import {
-    MAT_DATE_LOCALE,
     MatOptionModule,
     MatRippleModule,
   } from '@angular/material/core';
-  import { CommonModule, DatePipe, formatDate, NgClass } from '@angular/common';
-  import { rowsAnimation, TableExportUtil } from '@shared';
+  import { CommonModule, NgClass } from '@angular/common';
+  import { TableExportUtil } from '@shared';
   import { ReactiveFormsModule, FormsModule } from '@angular/forms';
   import { MatButtonModule } from '@angular/material/button';
   import { MatCardModule } from '@angular/material/card';
@@ -38,9 +37,8 @@ import { Component,  ElementRef,
   import { HttpClient } from '@angular/common/http';
   import { BreadcrumbComponent } from '@shared/components/breadcrumb/breadcrumb.component';
   import { Direction } from '@angular/cdk/bidi';
-  import { image } from 'd3';
-import { Company } from 'app/model/company';
-import { CompanyService } from 'app/services/company.service';
+  import { Company } from 'app/model/company';
+  import { CompanyService } from 'app/services/company.service';
 
 @Component({
   selector: 'app-company',
@@ -66,7 +64,6 @@ import { CompanyService } from 'app/services/company.service';
     MatProgressSpinnerModule,
     MatMenuModule,
     MatPaginatorModule,
-
   ],
   templateUrl: './company.component.html',
   styleUrl: './company.component.scss'

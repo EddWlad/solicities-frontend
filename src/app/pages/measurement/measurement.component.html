@@ -15,7 +15,7 @@
             <div class="left">
               <ul class="header-buttons-left ms-0">
                 <li class="tbl-title">
-                  <h2>Company Table</h2>
+                  <h2>Measurement Table</h2>
                 </li>
                 <li class="tbl-search-box">
                   <label for="search-input"><i class="material-icons search-icon">search</i></label>
@@ -95,26 +95,10 @@
                     </mat-checkbox>
                   </mat-cell>
                 </ng-container>
-
-
                 @for (column of columnDefinitions; track column) {
                 <!-- Skip rendering if column.label is "select" or "action" -->
                 @if (column.type === 'check' || column.type === 'actionBtn') {
                 <!-- Skip this column -->
-                } @else {
-                @if (column.def === 'ruc') {
-                <ng-container [matColumnDef]="column.def">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>
-                    <span class="truncate-text">{{ column.label }}</span>
-                  </mat-header-cell>
-                  <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)" [matTooltip]="row.ruc">
-                    <span class="mobile-label">{{ column.label }}:</span>
-                    <img [src]="row.logo" class="table-img" alt="image" />
-                    <span class="truncate-text">
-                      {{ row.ruc }}
-                    </span>
-                  </mat-cell>
-                </ng-container>
                 } @else {
                 @if (column.type === 'name') {
                 <ng-container [matColumnDef]="column.def">
@@ -123,7 +107,7 @@
                   </mat-header-cell>
                   <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
                     <span class="mobile-label">{{ column.label }}:</span> <mat-icon
-                      class="tbl-icon material-icons-outlined col-blue">domain</mat-icon>
+                      class="tbl-icon material-icons-outlined col-blue">straighten</mat-icon>
                     <span class="truncate-text">
                       {{row[column.def]}}
                     </span>
@@ -143,19 +127,6 @@
                       {{ column.cell ? column.cell(row) : row[column.def] }}</span></mat-cell>
                 </ng-container>-->
                 } @else {
-                @if (column.type === 'address') {
-                <ng-container [matColumnDef]="column.def">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>
-                    <span class="truncate-text">{{ column.label }}</span>
-                  </mat-header-cell>
-                  <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)"
-                    [matTooltip]="row[column.def]">
-                    <span class="mobile-label">{{ column.label }}:</span> <mat-icon
-                      class="tbl-icon material-icons-outlined col-red">place</mat-icon><span class="truncate-text">
-                      {{ row[column.def] }}</span></mat-cell>
-                </ng-container>
-                } @else {
-
                 @if (column.def === 'status') {
                 <ng-container [matColumnDef]="column.def">
                   <mat-header-cell *matHeaderCellDef mat-sort-header> <span class="truncate-text">{{ column.label
@@ -192,16 +163,6 @@
                 }
                 }
                 }
-                }
-                }
-                <!-- For User with image -->
-                <!-- For Date Columns -->
-                <!-- For Mobile Columns -->
-                <!-- For Email Columns -->
-                <!-- For Address Columns -->
-                <!-- For Gender Column -->
-                <!-- Rest all columns -->
-                <!-- actions -->
                 <ng-container matColumnDef="actions">
                   <mat-header-cell class="pr-0" *matHeaderCellDef>Actions</mat-header-cell>
                   <mat-cell *matCellDef="let row; let i=index;" class="pr-0">

@@ -4,11 +4,10 @@ import { DirectionService, InConfiguration } from '@core';
 import { ConfigService } from '@config';
 import { DOCUMENT } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { RightSidebarComponent } from '../../right-sidebar/right-sidebar.component';
-import { SidebarComponent } from '../../sidebar/sidebar.component';
-import { HeaderComponent } from '../../header/header.component';
 import { UnsubscribeOnDestroyAdapter } from '@shared';
-import { MaterialComponent } from 'app/pages/material/material.component';
+import { HeaderComponent } from 'app/layout/header/header.component';
+import { SidebarComponent } from 'app/layout/sidebar/sidebar.component';
+import { RightSidebarComponent } from 'app/layout/right-sidebar/right-sidebar.component';
 
 @Component({
     selector: 'app-main-layout',
